@@ -10,14 +10,15 @@ const {
   deleteTour,
 } = require("../controllers/tourControllers.js");
 
+const auth = require("../middleware/auth.js");
+
 router.get("/", getAllTours);
 
+router.use(auth);
+
 router.post("/", createTour);
-
 router.get("/:tourId", getTourById);
-
 router.put("/:tourId", updateTour);
-
 router.delete("/:tourId", deleteTour);
 
 module.exports = router;

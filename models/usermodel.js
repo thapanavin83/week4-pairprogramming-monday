@@ -1,4 +1,3 @@
-```js
 let userArray = [];
 let nextId = 1;
 
@@ -93,7 +92,6 @@ const deleteOneById = (id) => {
   return false;
 };
 
-// Test data
 if (require.main === module) {
   let result = addOne(
     "Matti Seppänen",
@@ -144,4 +142,3 @@ module.exports = {
   updateOneById,
   deleteOneById,
 };
-```

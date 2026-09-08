@@ -1,4 +1,3 @@
-```js
 const User = require("../models/userModel.js");
 
 const getAllUsers = (req, res) => {
@@ -92,4 +91,3 @@ module.exports = {
   updateUser,
   deleteUser,
 };
-```
