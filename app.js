@@ -1,35 +1,21 @@
 const express = require("express");
+const morgan = require("morgan");
+
 const app = express();
 
-const {
-  getAllTours,
-  getTourById,
-  createTour,
-  updateTour,
-  deleteTour,
-} = require("./tourHandlers.js"); 
+const tourRouter = require("./routes/tourRouter.js");
+const userRouter = require("./routes/userRouter.js");
 
-// Middleware to parse JSON
+// Middleware
 app.use(express.json());
+app.use(morgan("tiny"));
 
-// ROUTES
-// GET /tours
-app.get("/tours", getAllTours);
-
-// POST /tours
-app.post("/tours", createTour);
-
-// GET /tours/:tourId
-app.get("/tours/:tourId", getTourById);
-
-// PUT /tours/:tourId
-app.put("/tours/:tourId", updateTour);
-
-// DELETE /tours/:tourId
-app.delete("/tours/:tourId", deleteTour);
+// Routes
+app.use("/tours", tourRouter);
+app.use("/users", userRouter);
 
 const port = 4000;
-// Start the server
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
